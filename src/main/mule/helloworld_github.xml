@@ -10,6 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="helloworld_githubFlow" doc:id="dd9cdf82-8bfc-4d93-aa69-0dd4ac5fb768" >
 		<http:listener doc:name="Listener" doc:id="d18cdfaa-a079-4e1a-97c2-74154e30a91a" config-ref="HTTP_Listener_config" path="/hellogit"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e7ef0578-88e3-4209-bc55-7055afdce169" message="start logger"/>
 		<ee:transform doc:name="Transform Message" doc:id="38d4a6ee-9ed4-489a-9482-4de1eb88237b" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -20,5 +21,6 @@ output application/json
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="21f0ec90-c00c-41e2-b8f9-736a173a1dab" message="end logger"/>
 	</flow>
 </mule>
